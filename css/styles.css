@@ -1,0 +1,540 @@
+/* ============================================================
+   SGP-PRO - HOJA DE ESTILOS PRINCIPAL
+   Paleta: Rojo Sangre (#780606) + Dorado (#D4AF37)
+   ============================================================ */
+
+/* ==================== VARIABLES Y RESET ==================== */
+:root {
+    --color-primary: #780606;       /* Rojo Sangre Principal */
+    --color-primary-light: #9e0808; /* Rojo Sangre Claro */
+    --color-primary-dark: #4a0303;  /* Rojo Sangre Oscuro */
+    --color-gold: #D4AF37;          /* Dorado (Acento) */
+    --color-gold-hover: #B8962E;
+    --color-bg-light: #fdf6f6;      /* Fondo claro con tinte rojo sutil */
+    --color-text-dark: #2a0202;     /* Texto oscuro con tinte rojo */
+    --color-text-muted: #6b5b5e;    /* Texto secundario */
+    --color-text-light: #ffffff;
+    --font-main: 'Poppins', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Utilidades de color */
+.text-gold { color: var(--color-gold) !important; }
+.text-primary-custom { color: var(--color-primary) !important; }
+.bg-primary-custom { background-color: var(--color-primary) !important; }
+.bg-light-custom { background-color: #fdf6f6 !important; }
+
+/* ==================== NAVBAR HORIZONTAL ==================== */
+.navbar-custom {
+    background-color: var(--color-primary);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(120, 6, 6, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar-custom .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.8rem; /* Texto un poco más grande ya que no hay logo */
+    text-decoration: none;
+}
+
+.navbar-custom .navbar-brand span {
+    color: var(--color-gold);
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px !important;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: var(--color-gold) !important;
+}
+
+.navbar-custom .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
+    width: 60%;
+}
+
+.navbar-custom .navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-contact {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-contact:hover { color: var(--color-gold); }
+
+/* ==================== HERO / CABECERAS DE PÁGINA ==================== */
+.page-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    padding: 80px 0 60px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.page-header p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Hero de inicio específico */
+.hero-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    padding: 100px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-logo {
+    height: 220px; /* Antes 90px */
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    margin-bottom: 20px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.hero-img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ==================== SECCIONES ==================== */
+.section-padding { padding: 80px 0; }
+
+.section-tag {
+    display: inline-block;
+    background-color: rgba(120, 6, 6, 0.1);
+    color: var(--color-primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.lead-text {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+/* ==================== TARJETAS GENÉRICAS ==================== */
+.card-custom {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0e0e0;
+    height: 100%;
+}
+
+.card-custom:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(120, 6, 6, 0.15);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(120, 6, 6, 0.1);
+    color: var(--color-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.card-custom h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.card-custom p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* ==================== PROBLEMA / SOLUCIÓN ==================== */
+.problem-card, .solution-card {
+    background: white;
+    border-radius: 16px;
+    padding: 35px;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+}
+
+.problem-card { border-top: 4px solid #dc3545; }
+.solution-card { border-top: 4px solid #198754; }
+
+.card-icon-problem, .card-icon-solution {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.card-icon-problem { background: rgba(220, 53, 69, 0.1); color: #dc3545; }
+.card-icon-solution { background: rgba(25, 135, 84, 0.1); color: #198754; }
+
+.problem-list, .solution-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.problem-list li, .solution-list li {
+    padding: 10px 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.problem-list li i { color: #dc3545; }
+.solution-list li i { color: #198754; }
+
+/* ==================== PASOS (CÓMO FUNCIONA) ==================== */
+.step-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover { transform: translateY(-8px); }
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: var(--color-gold);
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.step-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(120, 6, 6, 0.1);
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 20px auto 15px;
+}
+
+.step-card h5 {
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ==================== TESTIMONIOS ==================== */
+.testimonial-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+}
+
+.testimonial-card .stars {
+    color: var(--color-gold);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.testimonial-author .avatar {
+    width: 45px;
+    height: 45px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.testimonial-author strong {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+}
+
+.testimonial-author small {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+/* ==================== FAQ / ACORDEÓN ==================== */
+.accordion-item {
+    border: 1px solid #f0e0e0;
+    border-radius: 12px !important;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(120, 6, 6, 0.05);
+}
+
+.accordion-button {
+    background: white;
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: 18px 20px;
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(120, 6, 6, 0.05);
+    color: var(--color-primary);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(120, 6, 6, 0.15);
+    border-color: var(--color-primary);
+}
+
+.accordion-button i {
+    color: var(--color-gold);
+}
+
+.accordion-body {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* ==================== BOTONES ==================== */
+.btn-gold {
+    background-color: var(--color-gold);
+    color: var(--color-primary);
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--color-gold-hover);
+    color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.btn-outline-custom {
+    border: 2px solid rgba(255,255,255,0.5);
+    color: white;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: white;
+    color: var(--color-primary);
+    border-color: white;
+}
+
+/* ==================== FORMULARIOS ==================== */
+.form-control {
+    border: 1px solid #e0d0d0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-family: var(--font-main);
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(120, 6, 6, 0.15);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background-color: #2a0202;
+    color: rgba(255,255,255,0.7);
+    padding: 60px 0 20px;
+}
+
+.footer h5, .footer h6 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover { color: var(--color-gold); }
+
+.footer ul { list-style: none; padding: 0; }
+.footer ul li { margin-bottom: 10px; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 991.98px) {
+    .hero-section h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+    .page-header h1 { font-size: 2.2rem; }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section h1 { font-size: 2rem; }
+    .section-title { font-size: 1.7rem; }
+    .page-header h1 { font-size: 1.8rem; }
+    .section-padding { padding: 50px 0; }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
