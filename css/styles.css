@@ -45,7 +45,7 @@ body {
 /* ==================== NAVBAR HORIZONTAL ==================== */
 .navbar-custom {
     background-color: var(--color-primary);
-    padding: 15px 0;
+    padding: 12px 0;
     box-shadow: 0 4px 12px rgba(120, 6, 6, 0.2);
     transition: all 0.3s ease;
 }
@@ -56,7 +56,7 @@ body {
     gap: 10px;
     color: white;
     font-weight: 700;
-    font-size: 1.8rem; /* Texto un poco más grande ya que no hay logo */
+    font-size: 1.8rem;
     text-decoration: none;
 }
 
@@ -111,9 +111,17 @@ body {
     gap: 8px;
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
-.nav-contact:hover { color: var(--color-gold); }
+.nav-contact:hover {
+    color: var(--color-gold) !important;
+    transform: scale(1.05);
+}
+
+.nav-contact:active {
+    transform: scale(0.98);
+}
 
 /* ==================== HERO / CABECERAS DE PÁGINA ==================== */
 .page-header {
@@ -137,21 +145,23 @@ body {
     margin: 0 auto;
 }
 
-/* Hero de inicio específico */
+/* Hero de inicio específico (con menos padding superior) */
 .hero-section {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    padding: 100px 0;
+    padding: 50px 0 80px;
     color: white;
     position: relative;
     overflow: hidden;
 }
 
-.hero-logo {
-    height: 220px; /* Antes 90px */
+/* ✅ LOGO GRANDE SIN SOMBRA NI ESPACIOS EXTRA */
+.hero-logo-large {
+    height: 130px;
     width: auto;
     display: block;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    margin-top: -10px;
+    filter: none;
 }
 
 .hero-section h1 {
@@ -520,7 +530,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* ==================== RESPONSIVE ==================== */
+/* ==================== RESPONSIVE BASE ==================== */
 @media (max-width: 991.98px) {
     .hero-section h1 { font-size: 2.5rem; }
     .section-title { font-size: 2rem; }
@@ -537,4 +547,758 @@ body {
         text-align: center;
         gap: 10px;
     }
+}
+
+/* ==================== BOTÓN FLOTANTE DE CONTACTO ==================== */
+.floating-contact {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-gold), var(--color-gold-hover));
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+    animation: pulseContact 2s infinite;
+    transition: all 0.3s;
+}
+
+.floating-contact:hover {
+    transform: scale(1.1);
+    color: var(--color-primary);
+}
+
+@keyframes pulseContact {
+    0%, 100% { box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5); }
+    50% { box-shadow: 0 10px 40px rgba(212, 175, 55, 0.8), 0 0 0 10px rgba(212, 175, 55, 0.1); }
+}
+
+.floating-tooltip {
+    position: absolute;
+    right: 75px;
+    background: var(--color-primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.floating-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 8px solid var(--color-primary);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.floating-contact:hover .floating-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== BADGE DE GRATUITO EN EL HERO ==================== */
+.badge-gratuito-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--color-gold);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.badge-gratuito-hero i { font-size: 1.15rem; flex-shrink: 0; }
+.badge-gratuito-hero strong { color: var(--color-gold); font-weight: 700; }
+
+/* Badge general del hero */
+.badge-hero {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== IMAGEN DEL HERO CON FLOTANTES ==================== */
+.hero-img-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.5s;
+}
+
+.hero-img-wrapper:hover { transform: scale(1.02); }
+
+.hero-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-card-float {
+    position: absolute;
+    background: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    animation: floatCard 3s ease-in-out infinite;
+}
+
+.hero-card-float i { font-size: 1.2rem; color: var(--color-gold); }
+.hero-card-float.card-1 { top: 30px; left: 20px; }
+.hero-card-float.card-2 { bottom: 40px; right: 20px; animation-delay: 1.5s; }
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ==================== MÓDULOS MINI EN INDEX ==================== */
+.module-card-mini {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 25px;
+    text-align: center;
+    border: 2px solid #f0e0e0;
+    transition: all 0.4s;
+    height: 100%;
+}
+
+.module-card-mini:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(120, 6, 6, 0.15);
+}
+
+.module-card-icon-mini {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto 18px;
+    box-shadow: 0 8px 20px rgba(120, 6, 6, 0.25);
+    transition: all 0.4s;
+}
+
+.module-card-mini:hover .module-card-icon-mini {
+    transform: rotate(-8deg) scale(1.1);
+}
+
+.module-card-mini h5 {
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.module-card-mini p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ==================== MÓDULOS COMPLETOS ==================== */
+.module-card-full {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+    transition: all 0.4s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card-full:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(120, 6, 6, 0.15);
+}
+
+.module-card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.module-card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.module-card-full:hover .module-card-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.module-card-body {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.module-card-body h4 {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.module-card-body p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.module-features-mini {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.module-features-mini li {
+    padding: 4px 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.module-features-mini li i {
+    color: var(--color-gold);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+/* ==================== BENEFICIOS COMPLETOS ==================== */
+.benefit-card-full {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+    transition: all 0.4s;
+    height: 100%;
+}
+
+.benefit-card-full:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(120, 6, 6, 0.15);
+}
+
+.benefit-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 180px;
+}
+
+.benefit-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.benefit-card-full:hover .benefit-img-wrapper img {
+    transform: scale(1.1);
+}
+
+/* ✅ ICONO ROJO ARREGLADO: Ahora está dentro del marco, sin cortarse */
+.benefit-overlay-icon {
+    position: absolute;
+    bottom: 15px;      /* Antes -25px, ahora dentro */
+    right: 20px;       /* Un poco más a la izquierda */
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 8px 20px rgba(120, 6, 6, 0.3);
+    border: 3px solid white;
+    z-index: 2;        /* Asegura que quede por encima de la imagen */
+}
+
+/* ✅ CLASE ESPECÍFICA PARA LA IMAGEN DE FILTROS (img/filtro.jpg) */
+.benefit-img-filtro {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s;
+}
+
+.benefit-card-full:hover .benefit-img-filtro {
+    transform: scale(1.1);
+}
+
+.benefit-body {
+    padding: 35px 25px 25px;
+}
+
+.benefit-body h4 {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.benefit-body p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ==================== SOCIAL LINKS EN FOOTER ==================== */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: var(--color-gold);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* ==================== CTA SECTION ==================== */
+.cta-section {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+}
+
+.cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+}
+
+/* ==================== TARJETAS DE CARACTERÍSTICAS CON IMÁGENES ==================== */
+.feature-card-img {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-card-img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(120, 6, 6, 0.15);
+}
+
+.feature-img-wrapper {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.feature-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.feature-card-img:hover .feature-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.feature-body {
+    padding: 30px 25px;
+    text-align: center;
+    flex: 1;
+}
+
+.feature-body .card-icon {
+    margin: 0 auto 18px;
+}
+
+.feature-body h4 {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.feature-body p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ==================== BOTÓN INSTALAR ==================== */
+#btnInstalar {
+    min-width: 200px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+#btnInstalar:disabled {
+    opacity: 0.8;
+    cursor: wait;
+}
+
+#btnInstalar:not(:disabled):hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+}
+
+/* ==================== RESPONSIVE EXTRA ==================== */
+@media (max-width: 991.98px) {
+    .hero-img { height: 400px; }
+    .hero-card-float { font-size: 0.75rem; padding: 8px 12px; }
+    .hero-logo-large { height: 100px; margin-top: 0; }
+    .hero-section { padding: 40px 0 60px; }
+}
+
+@media (max-width: 767.98px) {
+    .hero-img { height: 320px; }
+    .hero-card-float.card-2 { display: none; }
+    .module-card-img-wrapper { height: 180px; }
+    .benefit-img-wrapper { height: 160px; }
+    .floating-contact { width: 55px; height: 55px; font-size: 1.4rem; }
+    .floating-tooltip { display: none; }
+    .hero-logo-large { height: 85px; }
+    .hero-section { padding: 30px 0 50px; }
+}
+
+@media (max-width: 575.98px) {
+    .hero-img { height: 260px; }
+    .hero-card-float.card-1 { font-size: 0.7rem; }
+    .badge-gratuito-hero { font-size: 0.75rem; padding: 8px 12px; }
+    .hero-logo-large { height: 75px; }
+    .hero-section { padding: 25px 0 40px; }
+}
+
+/* ==================== RESPONSIVE PARA LOGO GRANDE (pantallas XL) ==================== */
+@media (max-width: 1199.98px) {
+    .hero-logo-large { height: 115px; }
+}
+
+/* ==================== PAGE HEADER CON LOGO GRANDE Y VISIBLE ==================== */
+.page-header-with-logo {
+    padding: 60px 0 70px;
+    text-align: center;
+}
+
+/* ✅ LOGO GRANDE Y VISIBLE EN LA CABECERA */
+.page-header-logo-large {
+    height: 220px;
+    width: auto;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto 20px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+    transition: transform 0.4s ease;
+}
+
+.page-header-logo-large:hover {
+    transform: scale(1.05);
+}
+
+.page-header-with-logo h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.page-header-with-logo p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ==================== IMAGEN INTERACTIVA ==================== */
+.interactive-img-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(120, 6, 6, 0.15);
+    cursor: pointer;
+}
+
+.interactive-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.interactive-img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(74, 3, 3, 0.9) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 25px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.interactive-img-wrapper:hover .img-overlay {
+    opacity: 1;
+}
+
+.img-overlay i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--color-gold);
+}
+
+.img-overlay span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* ==================== LISTA DE CARACTERÍSTICAS ==================== */
+.feature-list-custom {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list-custom li {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    padding: 10px 0;
+    border-bottom: 1px solid #f0e0e0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.feature-list-custom li:last-child {
+    border-bottom: none;
+}
+
+.feature-list-custom li i {
+    font-size: 1.15rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* ==================== TARJETAS MVV (Misión, Visión, Valores) ==================== */
+.mvv-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+    transition: all 0.4s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mvv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.mvv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(120, 6, 6, 0.15);
+}
+
+.mvv-card:hover::before {
+    transform: scaleX(1);
+}
+
+.mvv-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 25px rgba(120, 6, 6, 0.25);
+    transition: transform 0.4s;
+}
+
+.mvv-card:hover .mvv-icon {
+    transform: rotate(-8deg) scale(1.1);
+}
+
+.mvv-card h4 {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.mvv-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.values-list li {
+    padding: 8px 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.values-list li i {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+}
+
+/* ==================== TARJETAS DE TECNOLOGÍAS ==================== */
+.tech-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(120, 6, 6, 0.08);
+    border: 1px solid #f0e0e0;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.tech-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(120, 6, 6, 0.15);
+    border-color: var(--color-gold);
+}
+
+.tech-card i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    display: block;
+    transition: transform 0.4s;
+}
+
+.tech-card:hover i {
+    color: var(--color-gold);
+    transform: scale(1.15);
+}
+
+.tech-card h6 {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.tech-card small {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+/* ==================== RESPONSIVE PAGE HEADER CON LOGO GRANDE ==================== */
+@media (max-width: 991.98px) {
+    .page-header-logo-large { height: 180px; }
+    .page-header-with-logo h1 { font-size: 2.3rem; }
+}
+
+@media (max-width: 767.98px) {
+    .page-header-logo-large { height: 140px; }
+    .page-header-with-logo h1 { font-size: 2rem; }
+    .mvv-card { padding: 30px 22px; }
+}
+
+@media (max-width: 575.98px) {
+    .page-header-logo-large { height: 110px; }
+    .page-header-with-logo { padding: 40px 0 50px; }
+    .page-header-with-logo h1 { font-size: 1.7rem; }
+    .page-header-with-logo p { font-size: 0.95rem; }
 }
