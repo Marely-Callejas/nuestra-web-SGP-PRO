@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SGP-Pro - Sistema gratuito de gestión de prácticas profesionales y horas sociales del INFRAMEN.">
     <title>Inicio | SGP-Pro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- NAVBAR HORIZONTAL (Solo texto, sin logo) -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                SGP<span>-Pro</span>
-            </a>
+            <a class="navbar-brand" href="index.html">SGP<span>-Pro</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,39 +25,64 @@
                     <li class="nav-item"><a class="nav-link" href="que-es.html">¿Qué es?</a></li>
                     <li class="nav-item"><a class="nav-link" href="modulos.html">Módulos</a></li>
                     <li class="nav-item"><a class="nav-link" href="beneficios.html">Beneficios</a></li>
+                    <!-- ✅ CAMBIO: "FAQ" → "Dudas sobre el sistema" -->
+                    <li class="nav-item"><a class="nav-link" href="#faq">Dudas sobre el sistema</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
-                <a href="mailto:soporte@sgppro.edu.sv" class="nav-contact d-none d-lg-flex">
-                    <i class="bi bi-envelope-fill"></i> soporte@sgppro.edu.sv
+                <!-- ✅ CAMBIO: Correo de Yeimy -->
+                <a href="#" class="nav-contact d-none d-lg-flex" id="correoNavbar" onclick="copiarCorreo(event)">
+                    <i class="bi bi-envelope-fill"></i> yeimy20@gmail.com
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO REDISEÑADO (sin tanto espacio) -->
     <section class="hero-section">
         <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <!-- ✅ LOGO AQUÍ, ENCIMA DE LA ETIQUETA -->
-                    <img src="img/logo.png" alt="Logo SGP-Pro" class="hero-logo mb-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <!-- ✅ LOGO MÁS GRANDE SIN SOMBRA -->
+                    <img src="img/logo.png" alt="Logo SGP-Pro" class="hero-logo-large mb-3">
                     
-                    <span class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">Innovación Educativa 2026</span>
+                    <span class="badge-hero mb-3">
+                        <i class="bi bi-stars me-1"></i> Innovación Educativa 2026
+                    </span>
                     <h1 class="mb-4">Digitaliza tus <span class="text-gold">Prácticas Profesionales</span></h1>
                     <p class="lead mb-4">SGP-Pro reemplaza las bitácoras en papel por un entorno digital seguro, automatizado y transparente para el INFRAMEN.</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="modulos.html" class="btn btn-gold">Explorar Módulos</a>
-                        <a href="que-es.html" class="btn btn-outline-custom">Conocer Más</a>
+                    <div class="d-flex gap-3 flex-wrap mb-4">
+                        <a href="modulos.html" class="btn btn-gold">
+                            <i class="bi bi-grid-3x3-gap-fill me-2"></i> Explorar Módulos
+                        </a>
+                        <a href="que-es.html" class="btn btn-outline-custom">
+                            <i class="bi bi-info-circle me-2"></i> Conocer Más
+                        </a>
+                    </div>
+                    <!-- ✅ BADGE DE GRATUITO -->
+                    <div class="badge-gratuito-hero">
+                        <i class="bi bi-gift-fill"></i>
+                        <span><strong>100% Gratuito</strong> para toda la comunidad del INFRAMEN</span>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <img src="img/hero-estudiantes.jpg" alt="Estudiantes del INFRAMEN" class="hero-img">
+                <div class="col-lg-5">
+                    <div class="hero-img-wrapper">
+                        <img src="img/hero-estudiantes.jpg" alt="Estudiantes del INFRAMEN" class="hero-img">
+                        <!-- ✅ Tarjetas flotantes sobre la imagen -->
+                        <div class="hero-card-float card-1">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Actividad aprobada</span>
+                        </div>
+                        <div class="hero-card-float card-2">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <span>Progreso 75%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- RESUMEN -->
+    <!-- ✅ RESUMEN DE 3 CARDS CON IMÁGENES -->
     <section class="section-padding">
         <div class="container text-center">
             <span class="section-tag">Bienvenido</span>
@@ -66,26 +90,341 @@
             <p class="section-subtitle">SGP-Pro es una plataforma desarrollada por estudiantes del INFRAMEN para digitalizar el control de las prácticas profesionales y horas sociales.</p>
             <div class="row g-4 mt-4">
                 <div class="col-md-4">
-                    <div class="card-custom">
-                        <div class="card-icon mx-auto"><i class="bi bi-currency-dollar"></i></div>
-                        <h4>Sin costo alguno</h4>
-                        <p>100% gratuito para estudiantes, tutores y administradores.</p>
+                    <div class="feature-card-img">
+                        <div class="feature-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600" alt="Sin costo alguno">
+                        </div>
+                        <div class="feature-body">
+                            <div class="card-icon mx-auto"><i class="bi bi-currency-dollar"></i></div>
+                            <h4>Sin costo alguno</h4>
+                            <p>100% gratuito para estudiantes, tutores y administradores.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card-custom">
-                        <div class="card-icon mx-auto"><i class="bi bi-shield-lock-fill"></i></div>
-                        <h4>Datos protegidos</h4>
-                        <p>Información segura en nuestra base de datos MySQL.</p>
+                    <div class="feature-card-img">
+                        <div class="feature-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600" alt="Datos protegidos">
+                        </div>
+                        <div class="feature-body">
+                            <div class="card-icon mx-auto"><i class="bi bi-shield-lock-fill"></i></div>
+                            <h4>Datos protegidos</h4>
+                            <p>Información segura en nuestra base de datos MySQL.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card-custom">
-                        <div class="card-icon mx-auto"><i class="bi bi-phone"></i></div>
-                        <h4>Multiplataforma</h4>
-                        <p>Úsalo desde computadora, tablet o teléfono sin instalar nada.</p>
+                    <div class="feature-card-img">
+                        <div class="feature-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600" alt="Multiplataforma">
+                        </div>
+                        <div class="feature-body">
+                            <div class="card-icon mx-auto"><i class="bi bi-phone"></i></div>
+                            <h4>Multiplataforma</h4>
+                            <p>Úsalo desde computadora, tablet o teléfono sin instalar nada.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ MÓDULOS DEL SISTEMA (resumen en index) -->
+    <section class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Arquitectura del Sistema</span>
+                <h2 class="section-title">Conoce los <span class="text-gold">Módulos</span></h2>
+                <p class="section-subtitle">Cada módulo está diseñado para un rol específico, ofreciendo funcionalidades adaptadas.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="module-card-mini">
+                        <div class="module-card-icon-mini"><i class="bi bi-person-plus-fill"></i></div>
+                        <h5>Registro</h5>
+                        <p>Crea tu cuenta de estudiante validada.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="module-card-mini">
+                        <div class="module-card-icon-mini"><i class="bi bi-shield-lock-fill"></i></div>
+                        <h5>Inicio de Sesión</h5>
+                        <p>Accede con tu rol según permisos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="module-card-mini">
+                        <div class="module-card-icon-mini"><i class="bi bi-mortarboard-fill"></i></div>
+                        <h5>Estudiante</h5>
+                        <p>Registra y gestiona tus bitácoras.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="module-card-mini">
+                        <div class="module-card-icon-mini"><i class="bi bi-people-fill"></i></div>
+                        <h5>Tutor</h5>
+                        <p>Consulta el progreso de tus estudiantes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="module-card-mini">
+                        <div class="module-card-icon-mini"><i class="bi bi-gear-fill"></i></div>
+                        <h5>Administrador</h5>
+                        <p>Valida y gestiona todas las bitácoras.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="module-card-mini">
+                        <div class="module-card-icon-mini"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+                        <h5>Reportes PDF</h5>
+                        <p>Genera tu Hoja de Control oficial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="modulos.html" class="btn btn-gold">
+                    Ver todos los módulos <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ CÓMO FUNCIONA -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Flujo del Sistema</span>
+                <h2 class="section-title">¿Cómo <span class="text-gold">Funciona</span>?</h2>
+                <p class="section-subtitle">En solo 4 pasos, transforma la manera en que gestionas tus prácticas.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon"><i class="bi bi-person-plus-fill"></i></div>
+                        <h5>Regístrate</h5>
+                        <p>Crea tu cuenta con tu correo institucional.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon"><i class="bi bi-pencil-square"></i></div>
+                        <h5>Registra Actividades</h5>
+                        <p>Agrega tus actividades con fecha y horas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon"><i class="bi bi-check2-square"></i></div>
+                        <h5>Valida</h5>
+                        <p>El admin aprueba o rechaza cada actividad.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <div class="step-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
+                        <h5>Genera Reportes</h5>
+                        <p>Descarga tu Hoja de Control oficial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ TESTIMONIOS -->
+    <section class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Lo que dicen de nosotros</span>
+                <h2 class="section-title">Testimonios</h2>
+                <p class="section-subtitle">Opiniones de estudiantes, tutores y coordinadores que ya usan SGP-Pro.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"Antes perdía mis bitácoras cada semana. Con SGP-Pro todo está seguro y puedo ver mi progreso al instante."</p>
+                        <div class="testimonial-author">
+                            <div class="avatar">GR</div>
+                            <div>
+                                <strong>Genesis Rivera</strong>
+                                <small>Estudiante · Desarrollo de Software</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"Revisar y aprobar bitácoras nunca fue tan rápido. Ahorro horas de trabajo cada semana."</p>
+                        <div class="testimonial-author">
+                            <div class="avatar">JM</div>
+                            <div>
+                                <strong>Lic. Juan López</strong>
+                                <small>Supervisor de Práctica</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>"Los reportes PDF con el formato oficial del INFRAMEN son un antes y un después para la institución."</p>
+                        <div class="testimonial-author">
+                            <div class="avatar">DD</div>
+                            <div>
+                                <strong>Ing. David Díaz</strong>
+                                <small>Coordinador de Bachillerato</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Preguntas Frecuentes</span>
+                <h2 class="section-title">Dudas sobre el <span class="text-gold">sistema</span></h2>
+                <p class="section-subtitle">Aquí respondemos las preguntas más comunes sobre SGP-Pro.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <i class="bi bi-question-circle-fill me-3"></i>
+                                    ¿SGP-Pro tiene algún costo?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>No, SGP-Pro es 100% gratuito.</strong> Fue desarrollado por estudiantes del 
+                                    INFRAMEN como proyecto académico, y su uso es libre para toda la comunidad educativa.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <i class="bi bi-question-circle-fill me-3"></i>
+                                    ¿Olvidé mi contraseña, cómo la recupero?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Contacta al administrador a través de <a href="mailto:yeimy20@gmail.com">yeimy20@gmail.com</a>. 
+                                    Estamos trabajando en el módulo de recuperación automática.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <i class="bi bi-question-circle-fill me-3"></i>
+                                    ¿Quiénes pueden usar SGP-Pro?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <ul class="mb-0">
+                                        <li><strong>Estudiantes:</strong> Registran sus actividades diarias.</li>
+                                        <li><strong>Tutores:</strong> Consultan el progreso de sus estudiantes.</li>
+                                        <li><strong>Administradores:</strong> Validan y generan reportes.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <i class="bi bi-question-circle-fill me-3"></i>
+                                    ¿Mis datos están seguros?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>Sí.</strong> Tu información se almacena en MySQL con validaciones estrictas 
+                                    y control de acceso por roles. Nunca compartimos datos con terceros.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ✅ RESPUESTA ACTUALIZADA: SÍ SE INSTALA -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    <i class="bi bi-question-circle-fill me-3"></i>
+                                    ¿Necesito instalar algo?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>Sí, se debe instalar la aplicación web desarrollada en Python.</strong> 
+                                    La aplicación SGP-Pro está construida con Python y Tkinter, y requiere su instalación 
+                                    para acceder a todas las funcionalidades del sistema (registro de bitácoras, validación, 
+                                    generación de reportes, etc.). Puedes descargarla desde el botón de <strong>"Instalar"</strong> 
+                                    en la parte inferior de esta página.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ✅ RESPUESTA ACTUALIZADA: DATOS CORRECTOS -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    <i class="bi bi-question-circle-fill me-3"></i>
+                                    ¿Qué pasa si tengo un problema técnico?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Si tienes un problema con tu correo o necesitas restablecer tu contraseña, 
+                                    contacta con el administrador:
+                                    <ul class="mt-2 mb-0">
+                                        <li><i class="bi bi-envelope-fill me-2"></i> <a href="mailto:yeimy20@gmail.com">yeimy20@gmail.com</a></li>
+                                        <li><i class="bi bi-telephone-fill me-2"></i> <strong>7090 8861</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ CTA FINAL: SOLO BOTÓN DE INSTALAR (simulado) -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-3">¿Listo para modernizar tus prácticas?</h2>
+            <p class="mb-4">Instala la aplicación web SGP-Pro desarrollada en Python y comienza a gestionar tus horas sociales.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <button type="button" class="btn btn-gold" id="btnInstalar" onclick="instalarApp()">
+                    <i class="bi bi-download me-2"></i> Instalar
+                </button>
             </div>
         </div>
     </section>
@@ -97,6 +436,12 @@
                 <div class="col-lg-4">
                     <h5>SGP<span class="text-gold">-Pro</span></h5>
                     <p>Sistema de Gestión de Prácticas y Horas Sociales del Instituto Nacional General Francisco Menéndez.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
                 </div>
                 <div class="col-lg-2 col-6">
                     <h6>Navegación</h6>
@@ -105,14 +450,17 @@
                         <li><a href="que-es.html">¿Qué es?</a></li>
                         <li><a href="modulos.html">Módulos</a></li>
                         <li><a href="beneficios.html">Beneficios</a></li>
+                        <li><a href="#faq">Dudas sobre el sistema</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-6">
                     <h6>Contacto</h6>
                     <ul>
                         <li><i class="bi bi-geo-alt-fill"></i> INFRAMEN, San Salvador</li>
-                        <li><i class="bi bi-envelope-fill"></i> soporte@sgppro.edu.sv</li>
-                        <li><i class="bi bi-telephone-fill"></i> +503 2222-3333</li>
+                        <!-- ✅ Correo de Yeimy -->
+                        <li><i class="bi bi-envelope-fill"></i> yeimy20@gmail.com</li>
+                        <li><i class="bi bi-telephone-fill"></i> 7090 8861</li>
+                        <li><i class="bi bi-clock-fill"></i> Lunes a Viernes: 7AM - 5PM</li>
                     </ul>
                 </div>
             </div>
@@ -122,6 +470,125 @@
             </div>
         </div>
     </footer>
+
+    <!-- ✅ SCRIPT PARA COPIAR EL CORREO Y SIMULAR INSTALACIÓN -->
+    <script>
+        // ✅ Función para copiar el correo al portapapeles
+        function copiarCorreo(event) {
+            event.preventDefault();
+            const correo = "yeimy20@gmail.com";
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(correo).then(() => {
+                    mostrarNotificacion("¡Correo copiado! " + correo);
+                }).catch(() => {
+                    copiarFallback(correo);
+                });
+            } else {
+                copiarFallback(correo);
+            }
+        }
+        
+        function copiarFallback(texto) {
+            const textarea = document.createElement('textarea');
+            textarea.value = texto;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                mostrarNotificacion("¡Correo copiado! " + texto);
+            } catch (err) {
+                alert("No se pudo copiar el correo. Por favor, cópialo manualmente: " + texto);
+            }
+            document.body.removeChild(textarea);
+        }
+        
+        function mostrarNotificacion(mensaje) {
+            const notif = document.createElement('div');
+            notif.textContent = mensaje;
+            notif.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #780606;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.9rem;
+                box-shadow: 0 10px 30px rgba(120, 6, 6, 0.4);
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => { notif.style.opacity = '1'; }, 10);
+            setTimeout(() => {
+                notif.style.opacity = '0';
+                setTimeout(() => notif.remove(), 300);
+            }, 2500);
+        }
+        
+        function instalarApp() {
+            const btn = document.getElementById('btnInstalar');
+            const textoOriginal = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Instalando...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> ¡Instalación simulada!';
+                
+                setTimeout(() => {
+                    btn.innerHTML = textoOriginal;
+                    btn.disabled = false;
+                }, 2500);
+                
+                const notif = document.createElement('div');
+                notif.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <i class="bi bi-info-circle-fill" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <strong>Demo:</strong> Esta es una instalación simulada.<br>
+                            <small style="opacity: 0.9;">La app real está en desarrollo.</small>
+                        </div>
+                    </div>
+                `;
+                notif.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 25px;
+                    background: linear-gradient(135deg, #780606, #9e0808);
+                    color: white;
+                    padding: 18px 24px;
+                    border-radius: 14px;
+                    font-size: 0.9rem;
+                    box-shadow: 0 15px 40px rgba(120, 6, 6, 0.5);
+                    z-index: 9999;
+                    max-width: 350px;
+                    opacity: 0;
+                    transform: translateX(50px);
+                    transition: all 0.4s ease;
+                `;
+                document.body.appendChild(notif);
+                
+                setTimeout(() => {
+                    notif.style.opacity = '1';
+                    notif.style.transform = 'translateX(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    notif.style.opacity = '0';
+                    notif.style.transform = 'translateX(50px)';
+                    setTimeout(() => notif.remove(), 400);
+                }, 3500);
+            }, 2000);
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
