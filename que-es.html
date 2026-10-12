@@ -6,7 +6,7 @@
     <title>¿Qué es? | SGP-Pro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -24,39 +24,200 @@
                     <li class="nav-item"><a class="nav-link active" href="que-es.html">¿Qué es?</a></li>
                     <li class="nav-item"><a class="nav-link" href="modulos.html">Módulos</a></li>
                     <li class="nav-item"><a class="nav-link" href="beneficios.html">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#faq">Dudas sobre el sistema</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
-                <a href="mailto:soporte@sgppro.edu.sv" class="nav-contact d-none d-lg-flex">
-                    <i class="bi bi-envelope-fill"></i> soporte@sgppro.edu.sv
+                <a href="#" class="nav-contact d-none d-lg-flex" id="correoNavbar" onclick="copiarCorreo(event)">
+                    <i class="bi bi-envelope-fill"></i> yeimy20@gmail.com
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- CABECERA -->
-    <section class="page-header">
+    <!-- ✅ CABECERA CON LOGO GRANDE Y VISIBLE -->
+    <section class="page-header page-header-with-logo">
         <div class="container">
-            <h1>¿Qué es <span class="text-gold">SGP-Pro</span>?</h1>
+            <img src="img/logo.png" alt="Logo SGP-Pro" class="page-header-logo-large">
+            <h1 class="mt-4">¿Qué es <span class="text-gold">SGP-Pro</span>?</h1>
             <p>Conoce la plataforma que está transformando la gestión de prácticas en el INFRAMEN.</p>
         </div>
     </section>
 
-    <!-- CONTENIDO -->
+    <!-- ✅ CONTENIDO PRINCIPAL -->
     <section class="section-padding">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
+                    <span class="section-tag">Sobre el sistema</span>
                     <h2 class="section-title">Un sistema <span class="text-gold">gratuito</span> hecho para ti</h2>
                     <p class="lead mb-4">SGP-Pro es una plataforma desarrollada por estudiantes del <strong>Instituto Nacional General Francisco Menéndez (INFRAMEN)</strong> para digitalizar el control de las prácticas profesionales y horas sociales.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="bi bi-check-circle-fill text-gold me-2"></i> <strong>Sin costo alguno:</strong> 100% gratuito para toda la comunidad.</li>
-                        <li class="mb-3"><i class="bi bi-check-circle-fill text-gold me-2"></i> <strong>Datos protegidos:</strong> Información segura en MySQL.</li>
-                        <li class="mb-3"><i class="bi bi-check-circle-fill text-gold me-2"></i> <strong>Accesible:</strong> Desde computadora, tablet o teléfono.</li>
+                    <ul class="list-unstyled feature-list-custom">
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                            <strong>Sin costo alguno:</strong> 100% gratuito para toda la comunidad.
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                            <strong>Datos protegidos:</strong> Información segura en MySQL.
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                            <strong>Accesible:</strong> Desde computadora, tablet o teléfono.
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800" alt="SGP-Pro" class="img-fluid rounded-4 shadow">
+                    <div class="interactive-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800" alt="SGP-Pro" class="img-fluid">
+                        <div class="img-overlay">
+                            <i class="bi bi-eye-fill"></i>
+                            <span>Sistema SGP-Pro</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ MISIÓN / VISIÓN / VALORES -->
+    <section class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Nuestra Esencia</span>
+                <h2 class="section-title">Misión, Visión y <span class="text-gold">Valores</span></h2>
+                <p class="section-subtitle">Los pilares que guían el desarrollo y funcionamiento de SGP-Pro.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="mvv-card">
+                        <div class="mvv-icon"><i class="bi bi-bullseye"></i></div>
+                        <h4>Misión</h4>
+                        <p>Facilitar a los estudiantes del INFRAMEN el registro y control digital de sus prácticas profesionales y horas sociales, eliminando el papeleo y los errores humanos mediante una plataforma segura, gratuita y accesible.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mvv-card">
+                        <div class="mvv-icon"><i class="bi bi-eye"></i></div>
+                        <h4>Visión</h4>
+                        <p>Ser la plataforma de referencia en la gestión de prácticas profesionales a nivel institucional, expandiéndose a otros centros educativos y convirtiéndose en un modelo de digitalización académica para El Salvador.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mvv-card">
+                        <div class="mvv-icon"><i class="bi bi-heart-fill"></i></div>
+                        <h4>Valores</h4>
+                        <ul class="values-list">
+                            <li><i class="bi bi-check2"></i> Compromiso</li>
+                            <li><i class="bi bi-check2"></i> Transparencia</li>
+                            <li><i class="bi bi-check2"></i> Innovación</li>
+                            <li><i class="bi bi-check2"></i> Colaboración</li>
+                            <li><i class="bi bi-check2"></i> Accesibilidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ PROBLEMA vs SOLUCIÓN -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">El Problema que Resolvemos</span>
+                <h2 class="section-title">¿Por qué nace <span class="text-gold">SGP-Pro</span>?</h2>
+                <p class="section-subtitle">El proceso manual de las bitácoras estaba lleno de problemas. SGP-Pro los elimina todos.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="problem-card">
+                        <div class="card-icon-problem"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                        <h4 class="mb-4">Antes (Proceso Manual)</h4>
+                        <ul class="problem-list">
+                            <li><i class="bi bi-x-circle-fill"></i> Pérdida o deterioro de hojas físicas</li>
+                            <li><i class="bi bi-x-circle-fill"></i> Errores humanos al calcular horas</li>
+                            <li><i class="bi bi-x-circle-fill"></i> Lentitud en la revisión y aprobación</li>
+                            <li><i class="bi bi-x-circle-fill"></i> Gastos constantes en impresiones</li>
+                            <li><i class="bi bi-x-circle-fill"></i> Información duplicada en múltiples hojas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="solution-card">
+                        <div class="card-icon-solution"><i class="bi bi-check-circle-fill"></i></div>
+                        <h4 class="mb-4">Ahora (Con SGP-Pro)</h4>
+                        <ul class="solution-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Almacenamiento digital seguro en MySQL</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cálculo automático de horas aprobadas</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Aprobación en tiempo real</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cero gastos en papelería</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Información centralizada y sin duplicados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ TECNOLOGÍAS -->
+    <section class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-tag">Tecnología</span>
+                <h2 class="section-title">¿Con qué está <span class="text-gold">construido</span>?</h2>
+                <p class="section-subtitle">SGP-Pro utiliza tecnologías modernas, gratuitas y de código abierto.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card">
+                        <i class="bi bi-filetype-py"></i>
+                        <h6>Python</h6>
+                        <small>Lógica del sistema</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card">
+                        <i class="bi bi-database-fill"></i>
+                        <h6>MySQL</h6>
+                        <small>Base de datos</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card">
+                        <i class="bi bi-window-stack"></i>
+                        <h6>Tkinter</h6>
+                        <small>Interfaz gráfica</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card">
+                        <i class="bi bi-file-pdf-fill"></i>
+                        <h6>ReportLab</h6>
+                        <small>Reportes PDF</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card">
+                        <i class="bi bi-file-spreadsheet-fill"></i>
+                        <h6>OpenPyXL</h6>
+                        <small>Reportes Excel</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ CTA FINAL CON BOTÓN DE INSTALAR (con animación completa) -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-3">¿Listo para modernizar tus prácticas?</h2>
+            <p class="mb-4">Instala la aplicación web SGP-Pro desarrollada en Python y comienza a gestionar tus horas sociales.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <button type="button" class="btn btn-gold" id="btnInstalar" onclick="instalarApp()">
+                    <i class="bi bi-download me-2"></i> Instalar
+                </button>
             </div>
         </div>
     </section>
@@ -68,6 +229,12 @@
                 <div class="col-lg-4">
                     <h5>SGP<span class="text-gold">-Pro</span></h5>
                     <p>Sistema de Gestión de Prácticas y Horas Sociales del Instituto Nacional General Francisco Menéndez.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
                 </div>
                 <div class="col-lg-2 col-6">
                     <h6>Navegación</h6>
@@ -76,14 +243,16 @@
                         <li><a href="que-es.html">¿Qué es?</a></li>
                         <li><a href="modulos.html">Módulos</a></li>
                         <li><a href="beneficios.html">Beneficios</a></li>
+                        <li><a href="index.html#faq">Dudas sobre el sistema</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-6">
                     <h6>Contacto</h6>
                     <ul>
                         <li><i class="bi bi-geo-alt-fill"></i> INFRAMEN, San Salvador</li>
-                        <li><i class="bi bi-envelope-fill"></i> soporte@sgppro.edu.sv</li>
-                        <li><i class="bi bi-telephone-fill"></i> +503 2222-3333</li>
+                        <li><i class="bi bi-envelope-fill"></i> yeimy20@gmail.com</li>
+                        <li><i class="bi bi-telephone-fill"></i> 7090 8861</li>
+                        <li><i class="bi bi-clock-fill"></i> Lunes a Viernes: 7AM - 5PM</li>
                     </ul>
                 </div>
             </div>
@@ -93,6 +262,130 @@
             </div>
         </div>
     </footer>
+
+    <!-- ✅ SCRIPT COMPLETO (copiar correo + instalar con animación) -->
+    <script>
+        // ✅ Copiar correo
+        function copiarCorreo(event) {
+            event.preventDefault();
+            const correo = "yeimy20@gmail.com";
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(correo).then(() => {
+                    mostrarNotificacion("¡Correo copiado! " + correo);
+                }).catch(() => {
+                    copiarFallback(correo);
+                });
+            } else {
+                copiarFallback(correo);
+            }
+        }
+        
+        function copiarFallback(texto) {
+            const textarea = document.createElement('textarea');
+            textarea.value = texto;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                mostrarNotificacion("¡Correo copiado! " + texto);
+            } catch (err) {
+                alert("No se pudo copiar el correo. Por favor, cópialo manualmente: " + texto);
+            }
+            document.body.removeChild(textarea);
+        }
+        
+        function mostrarNotificacion(mensaje) {
+            const notif = document.createElement('div');
+            notif.textContent = mensaje;
+            notif.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #780606;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 50px;
+                font-weight: 600;
+                font-size: 0.9rem;
+                box-shadow: 0 10px 30px rgba(120, 6, 6, 0.4);
+                z-index: 9999;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            document.body.appendChild(notif);
+            
+            setTimeout(() => { notif.style.opacity = '1'; }, 10);
+            setTimeout(() => {
+                notif.style.opacity = '0';
+                setTimeout(() => notif.remove(), 300);
+            }, 2500);
+        }
+        
+        // ✅ Instalar con animación COMPLETA (igual que el index)
+        function instalarApp() {
+            const btn = document.getElementById('btnInstalar');
+            const textoOriginal = btn.innerHTML;
+            
+            // Paso 1: "Instalando..."
+            btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i> Instalando...';
+            btn.disabled = true;
+            
+            // Paso 2: Después de 2s → "¡Instalación simulada!" + notificación
+            setTimeout(() => {
+                btn.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> ¡Instalación simulada!';
+                
+                // Notificación de demo
+                const notif = document.createElement('div');
+                notif.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <i class="bi bi-info-circle-fill" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <strong>Demo:</strong> Esta es una instalación simulada.<br>
+                            <small style="opacity: 0.9;">La app real está en desarrollo.</small>
+                        </div>
+                    </div>
+                `;
+                notif.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 25px;
+                    background: linear-gradient(135deg, #780606, #9e0808);
+                    color: white;
+                    padding: 18px 24px;
+                    border-radius: 14px;
+                    font-size: 0.9rem;
+                    box-shadow: 0 15px 40px rgba(120, 6, 6, 0.5);
+                    z-index: 9999;
+                    max-width: 350px;
+                    opacity: 0;
+                    transform: translateX(50px);
+                    transition: all 0.4s ease;
+                `;
+                document.body.appendChild(notif);
+                
+                setTimeout(() => {
+                    notif.style.opacity = '1';
+                    notif.style.transform = 'translateX(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    notif.style.opacity = '0';
+                    notif.style.transform = 'translateX(50px)';
+                    setTimeout(() => notif.remove(), 400);
+                }, 3500);
+                
+                // Paso 3: Después de 2.5s más → restaurar botón
+                setTimeout(() => {
+                    btn.innerHTML = textoOriginal;
+                    btn.disabled = false;
+                }, 2500);
+            }, 2000);
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
